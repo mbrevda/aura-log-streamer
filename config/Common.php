@@ -10,7 +10,7 @@ class Common extends Config
     public function define(Container $di)
     {
         $di->params['Mbrevda\LogStreamAdapter\Streamer']['factory']
-            = $di->newFactory('Mbrevda\Logstream\Server');
+            = $di->newFactory('Mbrevda\LogStream\Server');
     }
 
     public function modify(Container $di)

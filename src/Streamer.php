@@ -36,7 +36,7 @@ class Streamer
 
     public function __invoke()
     {
-        $server = $this->factory([$this, 'callback']);
+        $server = $this->factory->__invoke([$this, 'callback']);
         $server->run($this->getAddr());
     }
 }
