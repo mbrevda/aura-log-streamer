@@ -24,10 +24,9 @@ class Common extends Config
         $help_service = $di->get('aura/cli-kernel:help_service');
         $help = $di->newInstance('Aura\Cli\Help');
         $help_service->set('logger:view', function () use ($help) {
-            $help->setUsage('logger:view');
-            $help->setSummary('Streams entiries to the Streaming Logger Service');
+            $help->setSummary('Runs the Streaming Logger Server');
             $help->setOptions([
-                'addr::' => 'The address to the Streaming Logger Service'
+                'addr:' => 'The address that the server will listen on'
             ]);
             return $help;
 

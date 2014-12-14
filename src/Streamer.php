@@ -21,14 +21,14 @@ class Streamer
         $this->factory = $factory;
     }
     
-    public function logCallback($msg)
+    public function callback($msg)
     {
         $this->stdio->outln($msg);
     }
 
     public function getAddr()
     {
-        $opts = $this->context->get('addr::');
+        $opts = $this->context->getopt(['addr::']);
         $addr = $opts->get('--addr');
 
         return $addr ? $addr : '127.0.0.1:33000';
