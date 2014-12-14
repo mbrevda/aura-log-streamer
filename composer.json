@@ -1,0 +1,27 @@
+{
+    "name": "mbrevda/aura-log-streamer-adapter",
+    "authors": [
+        {
+            "name": "Moshe Brevda",
+            "email": "mbrevda@gmail.com"
+        }
+    ],
+    "require": {
+        "mbrevda/monolog-log-streamer": "dev-master",
+        "aura/cli": "~2.0"
+    },
+    "autolaod": {
+        "psr-4": {
+            "Mbrevda\\LogStreamer\\_Config\\": "config/",
+            "Mbrevda\\LogStreamer\\": "src/"
+        }
+    },
+    "extra": {
+        "aura": {
+            "type": "library",
+            "config": {
+                "common": "Mbrevda\\Monolog\\StreamLogger\\_Config\\Common"
+            }
+        }
+    }   
+}
