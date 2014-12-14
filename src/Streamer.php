@@ -7,6 +7,10 @@ use Aura\Cli\Stdio;
 
 class Streamer
 {
+    protected $factory;
+    protected $context;
+    protected $stdio;
+
     public function __construct(
         $factory,
         Context $context,
