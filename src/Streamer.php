@@ -1,15 +1,14 @@
 <?php
 
-namespace Mbrevda\CliLogStreamer;
+namespace Mbrevda\LogStreamAdapter;
 
-use Mbrevda\Monolog\LogStream as LogStreamService;
 use Aura\Cli\Context;
 use Aura\Cli\Stdio;
 
-class LogStreamer
+class Streamer
 {
     public function __construct(
-        ServiceFactory $factory,
+        $factory,
         Context $context,
         Stdio $stdio
     ) {
@@ -33,7 +32,7 @@ class LogStreamer
 
     public function __invoke()
     {
-        $logServer = $this->factory([$this, 'callback']);
-        $logServer->run($this->getAddr());
+        $server = $this->factory([$this, 'callback']);
+        $server->run($this->getAddr());
     }
 }

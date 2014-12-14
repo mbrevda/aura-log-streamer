@@ -10,17 +10,17 @@
         "mbrevda/monolog-log-streamer": "dev-master",
         "aura/cli": "~2.0"
     },
-    "autolaod": {
+    "autoload": {
         "psr-4": {
-            "Mbrevda\\LogStreamer\\_Config\\": "config/",
-            "Mbrevda\\LogStreamer\\": "src/"
+            "Mbrevda\\LogStreamAdapter\\_Config\\": "config/",
+            "Mbrevda\\LogStreamAdapter\\": "src/"
         }
     },
     "extra": {
         "aura": {
             "type": "library",
             "config": {
-                "common": "Mbrevda\\Monolog\\StreamLogger\\_Config\\Common"
+                "common": "Mbrevda\\LogStreamAdapter\\_Config\\Common"
             }
         }
     }   
