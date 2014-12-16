@@ -33,7 +33,7 @@ class Receiver
     private function formatMessage($msg)
     {
         //print_r($msg);
-        $out = PHP_EOL
+        $out = PHP_EOL . PHP_EOL
             . '<<bold>>['
             . $msg->datetime->date
             . '] '
@@ -72,7 +72,7 @@ class Receiver
                 break;
         }
 
-        $out .= '<<reset>>' . PHP_EOL;
+        $out .= '<<reset>>' . PHP_EOL . PHP_EOL;
 
         // monolog insists on hardcoding the php error name in the error text
         // clean it out here
