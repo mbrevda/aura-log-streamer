@@ -3,29 +3,23 @@
 namespace Mbrevda\LogStreamAdapter;
 
 use Aura\Cli\Context;
-use Aura\Cli\Stdio;
 
 class Streamer
 {
     protected $factory;
     protected $context;
-    protected $stdio;
+    protected $receiver;
 
     public function __construct(
         $factory,
         Context $context,
-        Stdio $stdio
+        Receiver $receiver
     ) {
         $this->context = $context;
-        $this->stdio = $stdio;
         $this->factory = $factory;
+        $this->recevier = $receiver;
     }
     
-    public function callback($msg)
-    {
-        $this->stdio->outln($msg);
-    }
-
     public function getAddr()
     {
         $opts = $this->context->getopt(['addr::']);
@@ -36,7 +30,7 @@ class Streamer
 
     public function __invoke()
     {
-        $server = $this->factory->__invoke([$this, 'callback']);
+        $server = $this->factory->__invoke($this->receiver);
         $server->run($this->getAddr());
     }
 }
