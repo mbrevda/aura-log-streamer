@@ -34,18 +34,19 @@ class Receiver
     {
         //print_r($msg);
         $out = PHP_EOL
-            . '<<bold>>'
+            . '<<bold>>['
             . $msg->datetime->date
-            . ' '
-            . $msg->level_name
+            . '] '
+            . str_pad($msg->level_name, 8)
             . ' '
             . ($msg->channel ? $msg->channel . ' ' : '')
+            . $msg->extra->class . '::' . $msg->extra->function
+            . PHP_EOL
             . (is_string($msg->location) ? $msg->location : '');
 
         switch ($msg->level_name) {
             default:
             case 'DEBUG':
-                //$out = '<<gray>>' . $out;
                 break;
             case 'INFO':
                 $out = '<<white>>' . $out;
