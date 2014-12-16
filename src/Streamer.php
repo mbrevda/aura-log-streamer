@@ -17,9 +17,9 @@ class Streamer
     ) {
         $this->context = $context;
         $this->factory = $factory;
-        $this->recevier = $receiver;
+        $this->receiver = $receiver;
     }
-    
+
     public function getAddr()
     {
         $opts = $this->context->getopt(['addr::']);

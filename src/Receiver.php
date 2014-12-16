@@ -15,9 +15,9 @@ class Receiver
         Stdio $stdio
     ) {
         $this->stdio = $stdio;
-        $this->factory = $factory;
+        $this->context = $context;
     }
-    
+
 
     public function __invoke($msg)
     {
@@ -45,7 +45,7 @@ class Receiver
         switch ($msg->level_name) {
             default:
             case 'DEBUG':
-                $out = '<<gray>>' . $out;
+                //$out = '<<gray>>' . $out;
                 break;
             case 'INFO':
                 $out = '<<white>>' . $out;
@@ -71,7 +71,7 @@ class Receiver
         }
 
         $out .= '<<reset>>' . PHP_EOL;
-        
+
         // monolog insists on hardcoding the php error name in the error text
         // clean it out here
         if (is_string($msg->message)) {
