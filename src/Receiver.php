@@ -40,7 +40,8 @@ class Receiver
             . str_pad($msg->level_name, 8)
             . ' '
             . ($msg->channel ? $msg->channel . ' ' : '')
-            . $msg->extra->class . '::' . $msg->extra->function
+            . ($msg->extra->class ? $msg->extra->class . '::' : '')
+            . $msg->extra->function
             . PHP_EOL
             . (is_string($msg->location) ? $msg->location : '');
 
