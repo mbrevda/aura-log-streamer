@@ -41,7 +41,7 @@ class Receiver
             . ' '
             . ($msg->channel ? $msg->channel . ' ' : '')
             . ($msg->extra->class ? $msg->extra->class . '::' : '')
-            . $msg->extra->function
+            . ($msg->extra->function ? $msg->extra->function : '')
             . PHP_EOL
             . (is_string($msg->location) ? $msg->location : '');
 
